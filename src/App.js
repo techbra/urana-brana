@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import ItemListContainer from './Container/ItemListContainer';
+import fondo from "../src/assets/fondo.png";
+import { styles } from './Components/styles';
+
 
 function App() {
+  const mensaje = "¡Bienvenidos a nuestro Universo Artistico!"
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <app>
+      <Navbar />
+      <ItemListContainer greeting={mensaje} />
+      <img style={styles.fondo}src={fondo} alt="ARTE Y MODA" />
+      </app>
     </div>
   );
 }

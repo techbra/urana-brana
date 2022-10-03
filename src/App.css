@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  background-color: rgb(196, 46, 188);
+  background-color: #c38dd3;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
 }
 
 .App-logo {
@@ -21,7 +27,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(196, 46, 188);
 }
 
 .App-link {
