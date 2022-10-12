@@ -1,17 +1,37 @@
-import React from "react";
-import Paper from '@mui/material/Paper'
-import { styles } from "../Components/styles";
+import React, { useEffect, useState } from "react";
+import ItemList from "./ItemList/ItemList";
 
 
-const ItemListContainer = ({ greeting, children })=>{
+
+
+const ItemListContainer = ({ greeting })=>{ 
+    const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
+    
+   useEffect(() => {
+        fetch("https://api.bestbuy.com/v1/products/8880044.json?apiKey=YourAPIKey")
+        .then((res) => res.json())
+        .then((json) => products(json))
+        .catch((error) => {
+            console.log(error);
+        })
+        .finally(setLoading(false));
+    }, []);
+      
+    
+    
+   
     return(
-        <Paper elevation={10}>
-        <div>
-         <h2 style={styles.greeting}>{greeting}</h2>
-        </div>
-        </Paper>
-    )
+        <>
+        <h1>{greeting}</h1>
+        {
+            <>
+            {loading ? <h1>Aguarde unos Segundos...</h1> : <ItemList products={products} />}
+         </>
 }
+          </>
+        );
+};
 
 export default ItemListContainer
     

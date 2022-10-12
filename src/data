@@ -1,0 +1,31 @@
+import Botascoloridas from "../assets/Botascoloridas.jpg";
+import leov from "../assets/leov.jpeg";
+import libras from "../assets/libras.jpeg";
+import virgol from "../assets/virgol.jpeg";
+
+
+
+const productos =[
+    {id:1, 
+    nombre:"Botas Multicolor", 
+    img: <img src={Botascoloridas} alt="" /> ,
+    categoria:"Ropa Intervenida", 
+    precio: 3950, stock:3},
+    {id:2,
+    nombre:"Cuadro Leo y Venus", 
+    img: <img src={leov} alt="" /> ,
+    categoria:"Obras", 
+    precio: 1500, stock:4},
+    {id:3,
+    nombre:"Libra Seanson", 
+    img: <img src={libras} alt="" /> , 
+    categoria:"Obras", 
+    precio: 2345, stock:6},
+    {id:4,
+    nombre:"Luna Virginian", 
+    img: <img src={virgol} alt="" /> , 
+    categoria:"Obras", 
+    precio: 1895, stock:3}
+
+
+

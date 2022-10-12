@@ -1,3 +1,5 @@
+import { withTheme } from "@emotion/react";
+import { pink } from "@mui/material/colors";
 
 export const styles = {
     navbar: {
@@ -38,7 +40,19 @@ export const styles = {
       },
       fondo: {
         opacity: .4,
-      }
+    },
+
+    contador: {
+      display: "left",
+      alignItems: "left",
+      height: 75,
+      width: "65%",
+      justifyContent: "space-around",
+      backgroundColor: "pink",
+      color:"purple"
+    },
+
+
    
 }
   
