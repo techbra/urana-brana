@@ -8,13 +8,12 @@ const ItemDetailContainer = ({ greeting }) => {
   const [loading, setLoading] = useState(true);
 
   const { id } = useParams();
-  const URL_BASE = 'https://fakestoreapi.com/products/1'
-  const URL_PRODUCTO = `${URL_BASE}/category/${id}`
+
 
   useEffect(() => {
     const getProducts = async () => {
       try {
-        const res = await fetch(id ? URL_PRODUCTO : URL_BASE);
+        const res = await fetch("https://fakestoreapi.com/products/" + id)
         const data = await res.json();
         setProduct(data);
       } catch {
@@ -24,7 +23,7 @@ const ItemDetailContainer = ({ greeting }) => {
       }
     };
     getProducts();
-  }, [id, URL_BASE, URL_PRODUCTO ]);
+  }, [id]);
 
   return (
     <>
