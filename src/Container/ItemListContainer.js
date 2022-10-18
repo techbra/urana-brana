@@ -1,36 +1,42 @@
 import React, { useEffect, useState } from "react";
-import ItemList from "./ItemList/ItemList";
+import { styles } from "../Components/styles";
+import ItemList from "./ItemList";
+import { useParams } from "react-router-dom";
 
 
+export const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  
+  const { id } = useParams();
 
+  const URL_BASE = 'https://fakestoreapi.com/products'
+  const URL_CATEGORIA = `${URL_BASE}/category/${id}`
 
-const ItemListContainer = ({ greeting })=>{ 
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    
-   useEffect(() => {
-        fetch("https://api.bestbuy.com/v1/products/8880044.json?apiKey=YourAPIKey")
-        .then((res) => res.json())
-        .then((json) => products(json))
-        .catch((error) => {
-            console.log(error);
-        })
-        .finally(setLoading(false));
-    }, []);
-      
-    
-    
-   
-    return(
-        <>
-        <h1>{greeting}</h1>
-        {
-            <>
-            {loading ? <h1>Aguarde unos Segundos...</h1> : <ItemList products={products} />}
-         </>
-}
-          </>
-        );
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await fetch(id ? URL_CATEGORIA : URL_BASE);
+        const data = await res.json();
+        setProducts(data);
+      } catch {
+        console.log("error");
+      } finally {
+        setLoading(false);
+      }
+    };
+    getProducts();
+
+  }, [id, URL_BASE, URL_CATEGORIA]);
+
+  console.log(useEffect)
+
+  return (
+    <>
+      <h1>{greeting}</h1>
+      {<>{loading ? <h1>Cargando...</h1> : <ItemList products={products} />}</>}
+    </>
+  );
 };
 
 export default ItemListContainer

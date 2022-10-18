@@ -2,18 +2,28 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import ItemListContainer from './Container/ItemListContainer';
 import fondo from "../src/assets/fondo.png";
+import ItemDetailContainer from './Container/ItemDatailContainer';
+import Cart from './Components/CartView/Cart';
 import { styles } from './Components/styles';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {
-  const mensaje = "¡Bienvenidos a nuestro Universo Artistico!"
+  const mensaje = "¡¡Bienvenidos a nuestro Universo!!"
   return (
     <div className="App">
-    <app>
-      <Navbar />
-      <ItemListContainer greeting={mensaje} />
-      <img style={styles.fondo}src={fondo} alt="ARTE Y MODA" />
-      </app>
+    <BrowserRouter>
+    <Navbar />
+     <Routes>
+      <Route path='/' element={<ItemListContainer greeting={mensaje} />}/>
+      <Route path='/categoria/:id' element={<ItemListContainer greeting={mensaje} />}/>
+      <Route path='/producto/:id' element={<ItemDetailContainer />}/>
+      <Route path='/cart' element={<Cart />}/>
+      <Route path='*' element={<ItemListContainer />}/>
+     </Routes>
+
+      </BrowserRouter>
+      <img style={styles.fondo}src={fondo} alt="ARTE Y MODA" /> 
+
     </div>
   );
 }

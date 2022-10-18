@@ -52,6 +52,14 @@ export const styles = {
       color:"purple"
     },
 
+    categorias:{
+      margin: 15,
+      color: "purple",
+      width: "65%",
+      textDecoration: "underline  purple",
+      
+
+    }
 
    
 }
