@@ -10,7 +10,7 @@ const Item = ({ product }) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          height="200"
+          height="300"
           image={product.image}
           alt={product.title}
         />
@@ -41,11 +41,11 @@ const Item = ({ product }) => {
 };
 const styles = {
     container: {
-      width: window.innerHeight > 900 ? "25%" : "90%",
+      width: window.innerHeight > 900 ? "50%" : "100%",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      margin: 10,
+      margin: 5,
       backgroundColor: "lilac",
     },
     title: {

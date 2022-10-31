@@ -6,12 +6,14 @@ import ItemDetailContainer from './Container/ItemDatailContainer';
 import Cart from './Components/CartView/Cart';
 import { styles } from './Components/styles';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { CustomProvider } from "./Context/Context";
 
 function App() {
   const mensaje = "¡¡Bienvenidos a nuestro Universo!!"
   return (
     <div className="App">
     <BrowserRouter>
+ <CustomProvider>
     <Navbar />
      <Routes>
       <Route path='/' element={<ItemListContainer greeting={mensaje} />}/>
@@ -20,8 +22,8 @@ function App() {
       <Route path='/cart' element={<Cart />}/>
       <Route path='*' element={<ItemListContainer />}/>
      </Routes>
-
-      </BrowserRouter>
+     </CustomProvider>
+    </BrowserRouter>
       <img style={styles.fondo}src={fondo} alt="ARTE Y MODA" /> 
 
     </div>
